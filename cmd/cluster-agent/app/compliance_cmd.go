@@ -21,6 +21,8 @@ var (
 )
 
 func init() {
-	complianceCmd.AddCommand(common.CheckCmd(&confPath))
+	confPathArray := make([]string, 1)
+	confPathArray[0] = confPath
+	complianceCmd.AddCommand(common.CheckCmd(confPathArray))
 	ClusterAgentCmd.AddCommand(complianceCmd)
 }
